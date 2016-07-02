@@ -22,9 +22,7 @@ def game_loop():
     y_position = 250
     
     x_change = 0
-    y_change = 0
-    
-    
+    y_change = 0    
     #-------------------------------------GAME LOOP---------------------------------------------
     gameExit = False
     
@@ -49,12 +47,16 @@ def game_loop():
                     x_change = 0
                 if event.key == pygame.K_UP or pygame.K_DOWN:
                     y_change = 0
+
         
         x_position += x_change
         y_position += y_change
         
         gameDisplay.fill(white)
         sprite(x_position, y_position)
+        
+        if x_position > display_width or x_position < 0:
+            x_change = 0
         
         pygame.display.update()
         clock.tick(60)
